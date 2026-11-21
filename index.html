@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <!-- iPad: "Adicionar à Tela de Início" opens it full screen, like an app -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Crônicas" />
+    <meta name="theme-color" content="#0a0814" />
+    <link rel="manifest" href="/cronicas-do-baralho/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/cronicas-do-baralho/icon-180.png" />
+    <title>Crônicas do Baralho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cinzel:wght@600;800&family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/cronicas-do-baralho/assets/index-DBBGMbyj.js"></script>
+    <link rel="stylesheet" crossorigin href="/cronicas-do-baralho/assets/index-hlJQBydT.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="c"></canvas>
+      <div id="overlay"></div>
+      <div id="banner"></div>
+      <div id="log"></div>
+
+      <div id="topbar">
+        <div class="pill wave">Onda <b id="wave">1</b></div>
+        <div class="pill" id="worldPill">🏛️</div>
+        <div class="pill" id="turn">—</div>
+        <div class="spacer"></div>
+        <div class="pill">🪙 <b id="gold">0</b></div>
+        <div class="pill" id="shopIn" title="Turnos até o Mercador">🛒 4</div>
+        <div class="pill">Recorde <b id="best">0</b></div>
+        <button class="pill btn" id="relicsBtn" title="Suas cartas">🃏 <b id="relCount">0</b></button>
+        <button class="pill btn" id="speedBtn" title="Velocidade">⏩ 1x</button>
+        <button class="pill btn" id="qualityBtn" title="Qualidade gráfica">⚙️ Alta</button>
+        <div class="pill hidden" id="fps">— fps</div>
+        <button class="pill btn" id="musicBtn" title="Música">🎵</button>
+        <button class="pill btn" id="muteBtn" title="Som">🔊</button>
+        <button class="pill btn" id="pauseBtn" title="Pausar (Esc)">⏸</button>
+        <button class="pill btn" id="storyPill" title="História dos mundos e heróis (ouvir)">🌍</button>
+        <button class="pill btn" id="bestiaryPill" title="Bestiário (B)">📖</button>
+        <button class="pill btn" id="achPill" title="Conquistas (C)">🏆</button>
+        <button class="pill btn" id="diaryPill" title="Diário de aventuras (F)">📔</button>
+        <button class="pill btn hidden" id="labPill" title="Laboratório de inimigos (L)">🧪 Lab</button>
+      </div>
+
+      <div id="relics" class="hidden">
+        <h3>Suas cartas</h3>
+        <div id="relList"></div>
+      </div>
+
+      <div id="hud" class="hidden">
+        <div id="pstats">
+          <div class="prow">
+            <span class="pname" id="pname">Cavaleiro</span>
+            <div class="bigbar">
+              <div class="fill" id="hpFill"></div>
+              <span id="hpText"></span>
+            </div>
+            <span id="shieldTag"></span>
+          </div>
+          <div class="chips" id="chips"></div>
+          <div class="wtraits" id="wtraits"></div>
+        </div>
+        <div id="actions"></div>
+      </div>
+
+      <div id="titleScreen" class="screen">
+        <div class="tt-deck" aria-hidden="true"><i>♠</i><i>♥</i><i>♦</i><i>♣</i><i>♠</i><i>♥</i><i>♦</i><i>♣</i></div>
+        <div class="tt-logo">
+          <div class="tt-crest">🃏</div>
+          <h1>Crônicas do Baralho</h1>
+          <div class="tt-sub">O Baralho das Eras foi rasgado. Junte as cartas, mundo após mundo.</div>
+        </div>
+        <nav class="tt-menu">
+          <button class="tt-btn main" id="playBtn">⚔️ Jogar</button>
+          <button class="tt-btn" id="prologueBtn" title="Assista de novo o flashback da Ruptura">🎬 Prólogo</button>
+          <button class="tt-btn" id="chronicleBtn" title="Releia a história de cada mundo e herói">📜 Crônicas</button>
+          <button class="tt-btn" id="bestiaryBtn" title="Todos os inimigos que você já derrotou (tecla B)">
+            📖 Bestiário
+          </button>
+          <button class="tt-btn" id="achBtn" title="Suas conquistas (tecla C)">🏆 Conquistas</button>
+          <button class="tt-btn" id="diaryBtn" title="Tudo o que você já fez (tecla F)">📔 Diário</button>
+          <button class="tt-btn" id="labBtn" title="Teste qualquer inimigo com qualquer variação (tecla L)">
+            🧪 Laboratório
+          </button>
+          <button class="tt-btn" id="optionsBtn">⚙️ Opções</button>
+        </nav>
+        <div class="tt-foot">🏆 Recorde: <b id="titleBest">0</b> ondas</div>
+      </div>
+
+      <div id="startScreen" class="screen hidden">
+        <h1>Escolha seu herói</h1>
+        <p class="lead">
+          Vença ondas, escolha cartas e gaste ouro com o <b>Mercador</b> a cada 4 ondas. A cada 10 ondas você viaja para
+          um <b>novo mundo</b>, cada um com uma <b>vantagem</b> e uma <b>desvantagem</b>. Golpes seguidos quebram a
+          <b>postura</b> dos inimigos.
+        </p>
+        <div class="classes" id="classes"></div>
+        <div class="odds" id="startOdds"></div>
+        <div class="st-row">
+          <button class="sbtn" id="backTitle">← Menu principal</button>
+          <button class="big" id="startBtn">⚔️ Começar</button>
+        </div>
+        <div class="muted" id="loadMsg">
+          <span class="kbd-only">Atalhos: números para as ações · Tab troca o alvo · Esc pausa</span
+          ><span class="touch-only">Toque nas cartas para agir · toque num inimigo para mirar nele · ⏸ pausa</span>
+        </div>
+      </div>
+
+      <div id="pauseScreen" class="screen hidden">
+        <div class="pz-box">
+          <h2>⏸ Pausado</h2>
+          <div class="pz-info" id="pauseInfo"></div>
+          <button class="tt-btn main" id="resumeBtn">▶ Continuar</button>
+          <button class="tt-btn" id="pOptionsBtn">⚙️ Opções</button>
+          <button class="tt-btn" id="pChronicleBtn">📜 Crônicas</button>
+          <button class="tt-btn" id="pBestiaryBtn">📖 Bestiário</button>
+          <button class="tt-btn" id="pAchBtn">🏆 Conquistas</button>
+          <button class="tt-btn" id="pDiaryBtn">📔 Diário</button>
+          <button class="tt-btn danger" id="quitBtn">🏠 Menu principal</button>
+          <div class="pz-tip"><span class="kbd-only">Esc ou P para continuar</span></div>
+        </div>
+      </div>
+
+      <div id="optionsScreen" class="hidden">
+        <div class="op-box">
+          <h2>⚙️ Opções</h2>
+          <div class="op-row">
+            <span>Qualidade gráfica</span>
+            <div class="op-seg" data-opt="quality">
+              <button data-v="low">Baixa</button><button data-v="medium">Média</button
+              ><button data-v="high">Alta</button>
+            </div>
+          </div>
+          <div class="op-row">
+            <span>Velocidade do combate</span>
+            <div class="op-seg" data-opt="speed">
+              <button data-v="1">1x</button><button data-v="2">2x</button><button data-v="3">3x</button>
+            </div>
+          </div>
+          <div class="op-row"><span>Música</span><button class="op-tog" data-opt="music"></button></div>
+          <div class="op-row"><span>Efeitos sonoros</span><button class="op-tog" data-opt="sound"></button></div>
+          <div class="op-row"><span>Narração em voz</span><button class="op-tog" data-opt="voice"></button></div>
+          <div class="op-row"><span>Flashback ao começar</span><button class="op-tog" data-opt="intro"></button></div>
+          <button class="tt-btn main" id="optionsClose">Pronto</button>
+        </div>
+      </div>
+
+      <div id="shopScreen" class="screen hidden">
+        <h2>🛒 Mercador</h2>
+        <div class="muted">
+          Ele aparece a cada 4 ondas · Você tem <b style="color: #fcd34d">🪙 <span id="sGold">0</span></b>
+        </div>
+        <div class="shopgrid" id="shopItems"></div>
+        <div id="shopMsg"></div>
+        <button class="big" id="shopClose">Continuar a luta</button>
+      </div>
+
+      <div id="pathScreen" class="screen hidden">
+        <h2>Escolha seu caminho</h2>
+        <p class="lead">A estrada se divide. Para onde você vai antes da próxima batalha?</p>
+        <div class="paths" id="pathOpts"></div>
+      </div>
+
+      <div id="eventScreen" class="screen hidden">
+        <div class="evicon" id="evIcon"></div>
+        <h2 id="evName"></h2>
+        <p class="lead" id="evDesc"></p>
+        <div class="evopts" id="evOpts"></div>
+        <div id="evMsg"></div>
+        <button class="big hidden" id="evClose">Continuar</button>
+      </div>
+      <button id="dashBtn" title="Dash (E)">💨 Dash <span>E</span></button>
+      <div id="explore" class="hidden">
+        <div class="ex-arrow" id="exploreArrow">▲</div>
+        <div>
+          <div class="ex-title" id="exploreTitle">🌀 Mundo concluído! Vá até o portal</div>
+          <div class="ex-help">
+            <span class="kbd-only"
+              >Ande com <b>WASD</b> / <b>setas</b> ou clique no chão · <b>E</b> dash · <b>botão direito</b> gira a
+              câmera ·</span
+            ><span class="touch-only"
+              >Ande com o <b>joystick</b> (polegar esquerdo) · <b>💨</b> dash · <b>arraste</b> para girar a câmera ·
+              <b>pinça</b> zoom ·</span
+            >
+            <span id="exploreGoal">portal</span> a <b id="exploreDist">—</b>
+          </div>
+        </div>
+      </div>
+      <div id="warp">
+        <div class="streaks s1"></div>
+        <div class="streaks s2"></div>
+        <div class="core"></div>
+        <div class="wname"><span class="wicon"></span><span class="wtext"></span></div>
+      </div>
+      <div id="rotateHint">
+        <div>📱↻<br />Gire o iPad na horizontal para jogar</div>
+      </div>
+      <div id="flash"></div>
+      <div id="fade"></div>
+      <div id="worldBanner"></div>
+
+      <div id="cardScreen" class="screen hidden">
+        <h2 id="cardTitle">Onda vencida!</h2>
+        <div class="muted">
+          Escolha uma carta · Você tem <b style="color: #fcd34d">🪙 <span id="cGold">0</span></b>
+        </div>
+        <div id="cards"></div>
+        <div class="shop">
+          <button class="sbtn" id="rerollBtn">🔄 Trocar cartas</button>
+          <button class="sbtn" id="buyPotBtn">🧪 Comprar poção (20)</button>
+          <button class="sbtn" id="skipBtn">⏭️ Pular</button>
+        </div>
+        <div class="odds" id="odds"></div>
+      </div>
+
+      <div id="overScreen" class="screen hidden">
+        <h1>Derrota</h1>
+        <p class="lead" id="overText"></p>
+        <div class="stats" id="overStats"></div>
+        <div class="owned" id="overCards"></div>
+        <div class="shop">
+          <button class="big" id="againBtn">↻ Jogar de novo</button
+          ><button class="sbtn" id="menuBtn">👥 Trocar personagem</button
+          ><button class="sbtn" id="labBtn2">🧪 Laboratório</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
