@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0814" />
+    <link rel="icon" type="image/svg+xml" href="/cronicas-do-baralho/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/cronicas-do-baralho/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/cronicas-do-baralho/icon-180.png" />
+    <link rel="manifest" href="/cronicas-do-baralho/manifest.webmanifest" />
+    <title>Crônicas do Baralho · RPG de cartas pixel</title>
+    <meta
+      name="description"
+      content="Crônicas do Baralho: um RPG de cartas em pixel art. Enfrente slimes, dragões de cristal e o Rei das Cartas!"
+    />
+    <meta property="og:title" content="Crônicas do Baralho" />
+    <meta property="og:description" content="RPG de cartas em pixel art — enfrente o Rei das Cartas!" />
+    <meta property="og:image" content="icon-512.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=Cinzel:wght@600;800&family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/cronicas-do-baralho/assets/site-CAPtQCAd.js"></script>
+    <link rel="modulepreload" crossorigin href="/cronicas-do-baralho/assets/i18n-DNN3UXwo.js">
+    <link rel="modulepreload" crossorigin href="/cronicas-do-baralho/assets/achievements-DxSeBIN_.js">
+    <link rel="modulepreload" crossorigin href="/cronicas-do-baralho/assets/sprites-CTi0x1CF.js">
+    <link rel="stylesheet" crossorigin href="/cronicas-do-baralho/assets/site-D6GPwVwv.css">
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="#top"
+        ><img src="/cronicas-do-baralho/favicon.svg" alt="" width="28" height="28" /><span>Crônicas do Baralho</span></a
+      >
+      <nav class="links">
+        <a href="#herois">Heróis</a>
+        <a href="#mundos">Mundos</a>
+        <a href="#monstros">Monstros</a>
+        <a href="#recursos">Recursos</a>
+      </nav>
+      <span id="langSlot"></span>
+      <a class="btn small" href="jogar.html">▶ Jogar</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-in">
+          <p class="kicker">RPG de cartas em pixel art · grátis no navegador</p>
+          <h1>Crônicas do Baralho</h1>
+          <p class="tag">
+            Escolha seu herói, atravesse mundos cheios de monstros, junte cartas poderosas e derrote o Rei das Cartas.
+          </p>
+          <div class="cta">
+            <a class="btn big" href="jogar.html">▶ Jogar agora</a>
+            <a class="btn ghost" href="3d.html">🧊 Versão 3D</a>
+          </div>
+          <div class="stage" id="heroStage"></div>
+        </div>
+      </section>
+
+      <section class="band stats">
+        <div><b id="nWorlds">12</b><span>mundos</span></div>
+        <div><b id="nFoes">100+</b><span>espécies de monstros</span></div>
+        <div><b id="nBosses">20+</b><span>chefões</span></div>
+        <div><b>5</b><span>heróis</span></div>
+        <div><b>10</b><span>idiomas</span></div>
+      </section>
+
+      <section id="herois" class="sec">
+        <h2>Escolha seu herói</h2>
+        <p class="sub">Cada um tem o seu jeito de lutar. Passe o mouse (ou toque) para ver o golpe!</p>
+        <div class="heroes" id="heroes"></div>
+      </section>
+
+      <section id="mundos" class="sec">
+        <h2>Uma jornada por mundos diferentes</h2>
+        <p class="sub">Cada mundo tem uma vantagem, uma desvantagem, perigos próprios e dois chefões no final.</p>
+        <div class="worlds" id="worlds"></div>
+      </section>
+
+      <section id="monstros" class="sec">
+        <h2>Monstros para todo lado</h2>
+        <p class="sub">Slimes, goblins, lobos, mímicos, dragões… e cada um pode aparecer em versões diferentes.</p>
+        <div class="parade"><div class="track" id="parade"></div></div>
+        <h3>Os chefões</h3>
+        <div class="bosses" id="bosses"></div>
+      </section>
+
+      <section class="sec king">
+        <div class="king-art" id="kingArt"></div>
+        <div class="king-txt">
+          <p class="kicker">O último desafio</p>
+          <h2>O Rei das Cartas</h2>
+          <p>
+            Na última mesa do último mundo, o Carteador mostra sua forma verdadeira. Desvie das mãos gigantes, bata
+            nelas quando ficarem presas no chão e derrube o rei numa luta ao vivo!
+          </p>
+        </div>
+      </section>
+
+      <section id="recursos" class="sec">
+        <h2>O que tem no jogo</h2>
+        <div class="feats">
+          <div class="feat">
+            <i>⚔️</i><b>Batalha ao vivo</b>
+            <p>Ande, pule e dê dash para desviar. Acerte o anel de defesa na hora certa para bloquear.</p>
+          </div>
+          <div class="feat">
+            <i>🃏</i><b>Cartas e relíquias</b>
+            <p>Depois de cada onda, escolha uma carta: comum, rara, lendária ou mítica.</p>
+          </div>
+          <div class="feat">
+            <i>🎲</i><b>Mais de 20 modificadores</b>
+            <p>Deixe cada partida diferente: inimigos gigantes, modo cego, chuva de ouro e muito mais.</p>
+          </div>
+          <div class="feat">
+            <i>😎</i><b>Modo dos memes</b>
+            <p>Inimigos tentam te mogar, batalhas de rap com setas e muita bagunça.</p>
+          </div>
+          <div class="feat">
+            <i>📖</i><b>Bestiário e diário</b>
+            <p>Descubra cada monstro e acompanhe a história de cada mundo.</p>
+          </div>
+          <div class="feat">
+            <i>🏆</i><b>Conquistas</b>
+            <p>Dezenas de desafios para completar e mostrar para os amigos.</p>
+          </div>
+          <div class="feat">
+            <i>🧪</i><b>Laboratório</b>
+            <p>Monte a batalha que quiser e teste qualquer inimigo.</p>
+          </div>
+          <div class="feat">
+            <i>🌍</i><b>10 idiomas</b>
+            <p>Português, inglês, espanhol, chinês, japonês e mais.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="final">
+        <h2>Pronto para a aventura?</h2>
+        <a class="btn big" href="jogar.html">▶ Jogar agora</a>
+        <p class="hint">Funciona no computador e no celular. Não precisa instalar nada.</p>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <img src="/cronicas-do-baralho/favicon.svg" alt="" width="20" height="20" />
+      <span>Crônicas do Baralho</span>
+      <a href="jogar.html">Jogar</a>
+      <a href="3d.html">Versão 3D</a>
+    </footer>
+  </body>
+</html>

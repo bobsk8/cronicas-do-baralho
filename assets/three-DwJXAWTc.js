@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/main-Cqu5eJy7.js","assets/menus-BZnhQVh2.js","assets/i18n-DNN3UXwo.js","assets/achievements-DxSeBIN_.js","assets/menus-BW6wJSCJ.css","assets/cinematic-DzY14OeU.js","assets/threejs-W2S7gB3Y.js","assets/enemies-D9oWtRNy.js","assets/bestiary-D0NwjKGf.js"])))=>i.map(i=>d[i]);
+import{s as e,t}from"./i18n-DNN3UXwo.js";t().finally(()=>e(()=>import(`./main-Cqu5eJy7.js`),__vite__mapDeps([0,1,2,3,4,5,6,7,8])));

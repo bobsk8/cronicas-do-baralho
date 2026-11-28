@@ -1,0 +1,26 @@
+INIMIGOS COM CORPO DO MIXAMO (https://www.mixamo.com)
+
+1. Baixe o personagem: Format "FBX Binary (.fbx)", Pose "T-pose", Skin "With Skin".
+2. Salve nesta pasta com o CÓDIGO do inimigo como nome (ex.: skeleton.fbx).
+3. Coloque o código na lista do arquivo list.json, entre aspas e separado por vírgula:
+     ["skeleton", "troll", "demon"]
+As animações são as mesmas dos heróis (pasta ../anims): não precisa baixar outras.
+Só inimigos humanoides usam o corpo do Mixamo; lobos, aranhas e slimes continuam como estão.
+
+Sugestões (busque o nome no Mixamo; qualquer personagem serve, o que vale é o nome do arquivo):
+  skeleton     Esqueleto              -> "Skeletonzombie"
+  mummy        Múmia                  -> "Mummy" ou "Zombie"
+  drowned      Afogado                -> "Zombie"
+  troll        Troll da Caverna       -> "Warrok"
+  orc          Orc Brutamontes        -> "Warrok" ou "Brute"
+  swampgiant   Gigante do Lodo        -> "Mutant"
+  yeti         Yeti                   -> "Mutant"
+  demon        Demônio Ancestral      -> "Ganfaul" ou "Demon"
+  gargoyle     Gárgula                -> "Ganfaul"
+  imp          Diabrete               -> "Parasite"
+  lich         Rei Lich               -> "Nightshade"
+  cultist      Cultista               -> "Vampire" (ou qualquer encapuzado)
+  bogwitch     Bruxa do Pântano       -> "Vampire" ou "Witch"
+  knight       Cavaleiro Sombrio      -> "Knight" ou "Paladin"
+  voidknight   Cavaleiro do Vazio     -> "Knight"
+  dealer       Carteador do Vazio     -> "Nightshade" ou "Vampire"

@@ -1,0 +1,18 @@
+Coloque aqui os arquivos baixados do Mixamo (https://www.mixamo.com).
+
+PERSONAGENS (nesta pasta) - Format: FBX Binary (.fbx), Pose: T-pose, Skin: With Skin
+  knight.fbx     -> Cavaleiro
+  berserker.fbx  -> Bárbaro
+  mage.fbx       -> Maga
+  rogue.fbx      -> Ladina
+  paladin.fbx    -> Paladino
+
+ANIMAÇÕES (na pasta anims/) - Format: FBX Binary (.fbx), Skin: Without Skin, 30 FPS
+  (marque "In Place" nas de andar/correr)
+  idle.fbx  walk.fbx  run.fbx  attack.fbx  attack2.fbx  cast.fbx
+  hit.fbx   death.fbx  block.fbx  dodge.fbx  victory.fbx
+
+ANIMAÇÕES POR CLASSE (anims/<classe>_<clipe>.fbx) — substituem as genéricas daquela classe:
+  mage_idle, mage_walk, mage_run, mage_cast, mage_cast2
+  rogue_idle, rogue_run, rogue_attack, rogue_attack2
+  berserker_idle, berserker_run, berserker_attack, berserker_attack2 (giro do Redemoinho)
